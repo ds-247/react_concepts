@@ -1,5 +1,13 @@
-export default function Card({darkTheme, changeTheme}) {
+import { useContext } from "react";
+import ThemeContext from "../context/ThemeContext";
 
+export default function Card() {
+
+    const {darkTheme, setDarkTheme} = useContext(ThemeContext);
+
+  const handleClick = () => {
+    setDarkTheme(!darkTheme);
+  };
     const themStyle = {
         backgroundColor: darkTheme ? "black" : "white",
         color: darkTheme ? "white" : "gray",
@@ -19,7 +27,7 @@ export default function Card({darkTheme, changeTheme}) {
     }
     return (
       <>
-      <button style={buttonStyle} onClick={changeTheme}>Toggle</button>
+      <button style={buttonStyle} onClick={handleClick}>Toggle</button>
         <div style={themStyle}>This is the theme section....</div>
       </>
     );

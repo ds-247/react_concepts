@@ -1,18 +1,15 @@
-import { useState } from "react";
 import Card from "./components/Card";
+import ThemeContextProvider from "./context/ThemeContextProvider";
 import "./App.css";
 
 function App() {
-  const [darkTheme, setDarkTheme] = useState(false);
 
-  const handleChange = () => {
-    setDarkTheme(prev => !prev);
-  }
+  // no need to pass the props 
 
   return (
-    <>
-      <Card darkTheme={darkTheme} changeTheme={handleChange}/>
-    </>
+    <ThemeContextProvider>
+      <Card />
+    </ThemeContextProvider>
   );
 }
 
