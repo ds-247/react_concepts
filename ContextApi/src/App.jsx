@@ -1,15 +1,17 @@
+// Import necessary dependencies
+import React, { useState } from "react";
+import { ThemeProvider } from "./context/ThemeProvider";
 import Card from "./components/Card";
-import ThemeContextProvider from "./context/ThemeContextProvider";
-import "./App.css";
+import './App.css'
 
+// App component
 function App() {
-
-  // no need to pass the props 
+  const [darkTheme, setDarkTheme] = useState(false);
 
   return (
-    <ThemeContextProvider>
+    <ThemeProvider value={{darkTheme, setDarkTheme}}>
       <Card />
-    </ThemeContextProvider>
+    </ThemeProvider>
   );
 }
 
